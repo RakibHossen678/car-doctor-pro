@@ -6,7 +6,12 @@ import React from "react";
 const page = () => {
   const handleSingUp = async (e) => {
     e.preventDefault();
-    console.log("clicked");
+    const form = e.target;
+    const newUser = {
+      name: form.name.value,
+      email: form.email.value,
+      pass: form.password.value,
+    };
   };
   return (
     <div className="w-10/12 mx-auto my-12 flex items-center">
@@ -23,8 +28,6 @@ const page = () => {
           <h1 className="text-2xl font-bold text-center py-6">Sign Up</h1>
           <form
             onSubmit={handleSingUp}
-            noValidate=""
-            action=""
             className="space-y-6"
           >
             <div className="space-y-1 text-sm">
