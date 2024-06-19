@@ -44,11 +44,15 @@ const Banner = () => {
             className="carousel-item relative w-full h-[580px] bg-cover bg-top object-cover rounded-xl"
           >
             <div className="text-white flex flex-col justify-center ml-24 max-w-md">
-              <h1 className="font-semibold text-6xl leading-none">{banner.title}</h1>
+              <h1 className="font-semibold text-6xl leading-none">
+                {banner.title}
+              </h1>
               <p className="pt-5 font-normal ">{banner.description}</p>
-              <div>
-                <button></button>
-                <button></button>
+              <div className="space-x-5 mt-6">
+                <button className="bg-primary px-4 py-4 rounded-md border-primary border-2">
+                  Discover More
+                </button>
+                <button className="border-2  px-4 py-4 border-primary rounded-md text-primary">Latest Project</button>
               </div>
             </div>
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
