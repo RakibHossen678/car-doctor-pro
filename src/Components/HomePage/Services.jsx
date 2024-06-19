@@ -1,5 +1,5 @@
 import ServiceCards from "../Card/ServiceCards";
-import { services } from "../lib/services";
+import { services } from "../../lib/services";
 
 const Services = () => {
   return (

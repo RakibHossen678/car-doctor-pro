@@ -12,6 +12,17 @@ const page = () => {
       email: form.email.value,
       pass: form.password.value,
     };
+    const resp = await fetch("http://localhost:3000/signUp/api", {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    console.log(resp);
+    // if (resp) {
+    //   form.reset();
+    // }
   };
   return (
     <div className="w-10/12 mx-auto my-12 flex items-center">
@@ -26,10 +37,7 @@ const page = () => {
       <div className="w-1/2">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl  border-2">
           <h1 className="text-2xl font-bold text-center py-6">Sign Up</h1>
-          <form
-            onSubmit={handleSingUp}
-            className="space-y-6"
-          >
+          <form onSubmit={handleSingUp} className="space-y-6">
             <div className="space-y-1 text-sm">
               <label htmlFor="username" className="block  font-medium">
                 Name

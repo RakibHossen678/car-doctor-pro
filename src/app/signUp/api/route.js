@@ -1,15 +1,21 @@
-import { connectDB } from "@/Components/lib/connectDB";
+import { connectDB } from "@/lib/connectDB";
+import bcrypt from "bcrypt";
 
 export const POST = async (request) => {
   const newUser = await request.json();
   try {
     const db = await connectDB();
     const userCollection = db.collection("users");
-    const exist =await userCollection.findOne({ email: newUser.email });
+    const exist = await userCollection.findOne({ email: newUser.email });
     if (exist) {
-      return Response.json({ message: "User Exists" }, { status: 304 });
+      return Response.json({ message: "User Exist" }, { status: 303 });
     }
-    const res = await userCollection.insertOne(newUser);
+    const hashedPassword = await bcrypt.hash(newUser.pass, 14);
+    console.log(hashedPassword);
+    const res = await userCollection.insertOne({
+      ...newUser,
+      pass: hashedPassword,
+    });
     return Response.json({ message: "User Created" }, { status: 200 });
   } catch (error) {
     return Response.json(
