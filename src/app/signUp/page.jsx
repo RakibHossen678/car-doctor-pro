@@ -1,8 +1,13 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const page = () => {
+  const handleSingUp = async (e) => {
+    e.preventDefault();
+    console.log("clicked");
+  };
   return (
     <div className="w-10/12 mx-auto my-12 flex items-center">
       <div className="w-1/2">
@@ -16,12 +21,18 @@ const page = () => {
       <div className="w-1/2">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl  border-2">
           <h1 className="text-2xl font-bold text-center py-6">Sign Up</h1>
-          <form noValidate="" action="" className="space-y-6">
+          <form
+            onSubmit={handleSingUp}
+            noValidate=""
+            action=""
+            className="space-y-6"
+          >
             <div className="space-y-1 text-sm">
               <label htmlFor="username" className="block  font-medium">
                 Name
               </label>
               <input
+                required
                 type="text"
                 name="name"
                 id="name"
@@ -34,6 +45,7 @@ const page = () => {
                 Email
               </label>
               <input
+                required
                 type="email"
                 name="email"
                 id="email"
@@ -46,6 +58,7 @@ const page = () => {
                 Password
               </label>
               <input
+                required
                 type="password"
                 name="password"
                 id="password"
@@ -53,7 +66,10 @@ const page = () => {
                 className="w-full px-4 py-3 rounded-md border-gray-700 border-2 focus:border-violet-400"
               />
             </div>
-            <button className="block w-full p-3 text-center rounded-md bg-primary text-white">
+            <button
+              type="submit"
+              className="block w-full p-3 text-center rounded-md bg-primary text-white"
+            >
               Sign Up
             </button>
           </form>
@@ -98,7 +114,7 @@ const page = () => {
             <Link
               rel="noopener noreferrer"
               href="/login"
-              className="underline text-primary"
+              className=" text-primary"
             >
               Login
             </Link>

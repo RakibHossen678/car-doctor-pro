@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -6,7 +7,12 @@ const page = () => {
   return (
     <div className="w-10/12 mx-auto my-12 flex items-center">
       <div className="w-1/2">
-      <Image alt='login' width={350} height={400} src='/images/login/login.svg'></Image>
+        <Image
+          alt="login"
+          width={350}
+          height={400}
+          src="/images/login/login.svg"
+        ></Image>
       </div>
       <div className="w-1/2">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl  border-2">
@@ -36,7 +42,10 @@ const page = () => {
                 className="w-full px-4 py-3 rounded-md border-gray-700 border-2 focus:border-violet-400"
               />
             </div>
-            <button className="block w-full p-3 text-center rounded-md bg-primary text-white">
+            <button
+              type="submit"
+              className="block w-full p-3 text-center rounded-md bg-primary text-white"
+            >
               Sign in
             </button>
           </form>
@@ -81,7 +90,7 @@ const page = () => {
             <Link
               rel="noopener noreferrer"
               href="/signUp"
-              className="underline text-primary"
+              className=" text-primary"
             >
               Sign up
             </Link>
