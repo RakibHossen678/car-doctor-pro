@@ -1,9 +1,15 @@
 import { getServicesDetails } from "@/services/getServices";
+import Link from "next/link";
+
+export const metadata = {
+  title: "Service Details",
+  description: "Service Details Page",
+};
 
 const page = async ({ params }) => {
   const details = await getServicesDetails(params.id);
   const { service } = details;
-  const { title, description, img, price, facility } = service;
+  const { _id, title, description, img, price, facility } = service;
   return (
     <div className="w-10/12 mx-auto ">
       <div
@@ -41,9 +47,11 @@ const page = async ({ params }) => {
               <span>Price</span>
               <span>${price}</span>
             </h1>
-            <button className="bg-primary text-white px-5 py-2 rounded-md">
-              Proceed Checkout
-            </button>
+            <Link href={`/checkout/${_id}`}>
+              <button className="bg-primary text-white px-5 py-2 rounded-md">
+                Proceed Checkout
+              </button>
+            </Link>
           </div>
         </div>
       </div>
