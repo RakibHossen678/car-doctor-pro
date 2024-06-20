@@ -1,7 +1,13 @@
 import ServiceCards from "../Card/ServiceCards";
-import { services } from "../../lib/services";
 
-const Services = () => {
+const getServices = async () => {
+  const res = await fetch("http://localhost:3000/services/api/get-all");
+  const services = res.json();
+  return services;
+};
+const Services = async () => {
+  const {services}= await getServices();
+  // console.log(data.services);
   return (
     <div className="w-10/12 mx-auto my-20">
       <div className="pt-20 text-center">
@@ -14,7 +20,7 @@ const Services = () => {
         </p>
       </div>
       <div className="my-20 grid grid-cols-3 gap-9">
-        {services.map((service) => (
+        {services?.map((service) => (
           <ServiceCards service={service} key={service._id}></ServiceCards>
         ))}
       </div>
