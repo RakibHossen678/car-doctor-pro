@@ -1,9 +1,22 @@
-'use client'
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { signIn } from "next-auth/react";
 
 const page = () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const pass = form.password.value;
+    const resp = await signIn("credentials", {
+      email,
+      pass,
+      redirect: false,
+    });
+    console.log(resp);
+  };
   return (
     <div className="w-10/12 mx-auto my-12 flex items-center">
       <div className="w-1/2">
@@ -17,7 +30,7 @@ const page = () => {
       <div className="w-1/2">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl  border-2">
           <h1 className="text-2xl font-bold text-center py-6">Login</h1>
-          <form noValidate="" action="" className="space-y-6">
+          <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-1 text-sm">
               <label htmlFor="username" className="block  font-medium">
                 Email

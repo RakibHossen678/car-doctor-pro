@@ -1,3 +1,5 @@
+"use client";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
@@ -10,7 +12,8 @@ const Navbar = () => {
     { title: "Blog", path: "/blog" },
     { title: "Contact", path: "/contact" },
   ];
-
+  const session = useSession();
+  console.log(session);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -57,10 +60,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div className="flex space-x-2  mr-3">
-        <CiShoppingCart className="font-bold" size={26}/>
-        <CiSearch className="font-bold" size={26}/>
+          <CiShoppingCart className="font-bold" size={26} />
+          <CiSearch className="font-bold" size={26} />
         </div>
-        <a className="border-2 border-primary text-primary px-4 py-2 rounded-md">Appointment</a>
+        <a className="border-2 border-primary text-primary px-4 py-2 rounded-md">
+          Appointment
+        </a>
       </div>
     </div>
   );
