@@ -1,13 +1,7 @@
+import { getServices } from "@/services/getServices";
 import ServiceCards from "../Card/ServiceCards";
-
-const getServices = async () => {
-  const res = await fetch("http://localhost:3000/services/api/get-all");
-  const services = res.json();
-  return services;
-};
 const Services = async () => {
-  const {services}= await getServices();
-  // console.log(data.services);
+  const { services } = await getServices();
   return (
     <div className="w-10/12 mx-auto my-20">
       <div className="pt-20 text-center">
