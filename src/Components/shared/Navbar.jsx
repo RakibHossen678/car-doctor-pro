@@ -9,6 +9,7 @@ const Navbar = () => {
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
     { title: "Services", path: "/services" },
+    { title: "My Bookings", path: "/mybooking" },
     { title: "Blog", path: "/blog" },
     { title: "Contact", path: "/contact" },
   ];
@@ -72,9 +73,13 @@ const Navbar = () => {
               width={50}
               src={session?.data?.user?.image}
             />
-            <button onClick={()=>signOut()} className="border-2 border-primary text-primary px-4 py-2 rounded-md">Logout</button>
+            <button
+              onClick={() => signOut()}
+              className="border-2 border-primary text-primary px-4 py-2 rounded-md"
+            >
+              Logout
+            </button>
           </div>
-
         )}
         <a className="border-2 border-primary text-primary px-4 py-2 rounded-md">
           Appointment
