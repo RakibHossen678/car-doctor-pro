@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
@@ -63,6 +63,19 @@ const Navbar = () => {
           <CiShoppingCart className="font-bold" size={26} />
           <CiSearch className="font-bold" size={26} />
         </div>
+        {session?.data?.user && (
+          <div className="mr-3 flex space-x-3">
+            <Image
+              className="rounded-full"
+              alt="User"
+              height={50}
+              width={50}
+              src={session?.data?.user?.image}
+            />
+            <button onClick={()=>signOut()} className="border-2 border-primary text-primary px-4 py-2 rounded-md">Logout</button>
+          </div>
+
+        )}
         <a className="border-2 border-primary text-primary px-4 py-2 rounded-md">
           Appointment
         </a>
