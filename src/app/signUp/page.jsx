@@ -21,9 +21,9 @@ const page = () => {
       },
     });
     console.log(resp);
-    // if (resp) {
-    //   form.reset();
-    // }
+    if (resp.status === 200) {
+      form.reset();
+    }
   };
   return (
     <div className="w-10/12 mx-auto my-12 flex items-center">

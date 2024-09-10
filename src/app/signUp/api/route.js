@@ -11,7 +11,6 @@ export const POST = async (request) => {
       return Response.json({ message: "User Exist" }, { status: 303 });
     }
     const hashedPassword = await bcrypt.hash(newUser.pass, 14);
-    console.log(hashedPassword);
     const res = await userCollection.insertOne({
       ...newUser,
       pass: hashedPassword,

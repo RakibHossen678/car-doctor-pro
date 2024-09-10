@@ -34,7 +34,7 @@ const CheckoutPage = ({ params }) => {
   };
   useEffect(() => {
     loadService();
-  }, []);
+  }, [params.id]);
   return (
     <div className="w-10/12 mx-auto ">
       <div

@@ -70,7 +70,7 @@ const page = () => {
             </p>
             <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
           </div>
-         
+
           <SocialSignIn></SocialSignIn>
           <p className="text-xs text-center sm:px-6 text-gray-400">
             Don't have an account?
